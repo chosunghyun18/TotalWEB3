@@ -11,6 +11,7 @@ contract SaleAnimalToken {
         mintAnimalTokenAddress = MintAnimalToken(_mintAnimalTokenAddress);
     }
 
+    // animal token id input >> output price of token 
     mapping(uint256 => uint256) public animalTokenPrices;
 
     uint256[] public onSaleAnimalTokenArray;
