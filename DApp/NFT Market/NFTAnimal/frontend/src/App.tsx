@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 const App: FC = () => {
-  return <div>web3-boilerplate</div>;
+  return <div>WEL COME JOSH WEB PAGE</div>;
 };
 
 export default App;
