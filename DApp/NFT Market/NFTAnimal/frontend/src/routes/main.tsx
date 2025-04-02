@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 
 const Main: FC = () => {
-  return <div>Main</div>;
+  return <div>Welcome JOSH WEB Page</div>;
 };
 
 export default Main;
