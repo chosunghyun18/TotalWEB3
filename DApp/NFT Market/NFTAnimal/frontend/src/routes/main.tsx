@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-
+import { Box } from "@chakra-ui/react";
 
 const Main: FC = () => {
-  return <div>Welcome JOSH WEB Page</div>;
+  return <Box>Main</Box>;
 };
 
 export default Main;
