@@ -1,6 +1,6 @@
-// token TokenAddress 와 ABI 값은 기존 ide 에서 얻은 값
-import Web3 from "web3";
 import { AbiItem } from "web3-utils";
+
+import Web3 from "web3";
 
 const mintAnimalTokenAbi : AbiItem[] = [
     {
@@ -607,16 +607,144 @@ const mintAnimalTokenAbi : AbiItem[] = [
         "type": "function"
     }
 ]
+const saleAnimalTokenAbi : AbiItem[] = [
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_animalTokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchaseAnimalToken",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_animalTokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_price",
+                "type": "uint256"
+            }
+        ],
+        "name": "setForSaleAnimalToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_mintAnimalTokenAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "animalTokenPrices",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_animalTokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getAnimalTokenPrice",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getOnSaleAnimalTokenArrayLength",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "mintAnimalTokenAddress",
+        "outputs": [
+            {
+                "internalType": "contract MintAnimalToken",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "onSaleAnimalTokenArray",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+const mintAnimalTokenAdress ="0x3d77302195d825b217d68B502BB64bED1d56628f"
+const saleAnimalTokenAdress ="0x545E1cD5C4B343510abB16d7c01107A1DD712862"
 
-// 1. Web3 인스턴스 (MetaMask와 연결)
-export const web3 = new Web3((window as any).ethereum);
+export const web3 = new Web3(window.ethereum);
 
-// 2. 배포된 스마트 컨트랙트 주소 (Remix나 Truffle에서 확인 가능)
-export const MINT_ANIMAL_TOKEN_ADDRESS = "0x3d77302195d825b217d68B502BB64bED1d56628f"; // ← 바꿔야 함
-
-// 3. Contract 인스턴스
 export const mintAnimalTokenContract = new web3.eth.Contract(
-  mintAnimalTokenAbi as any,
-  MINT_ANIMAL_TOKEN_ADDRESS
+  mintAnimalTokenAbi,
+  mintAnimalTokenAdress
 );
 
+export const saleAnimalTokenContract = new web3.eth.Contract(
+  saleAnimalTokenAbi,
+  saleAnimalTokenAdress
+);
