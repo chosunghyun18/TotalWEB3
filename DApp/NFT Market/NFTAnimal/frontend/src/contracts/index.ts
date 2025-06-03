@@ -1,5 +1,7 @@
 import { AbiItem } from "web3-utils";
 
+import Web3 from "web3";
+
 const mintAnimalTokenAbi : AbiItem[]= [
 	{
 		"inputs": [],
@@ -732,5 +734,17 @@ const saleAnimalTokenAbi : AbiItem[] = [
 		"type": "function"
 	}
 ]
-const mintAnimalTokenAddress ="0x3d77302195d825b217d68B502BB64bED1d56628f"
-const saleAnimalTokenAddress ="0x545E1cD5C4B343510abB16d7c01107A1DD712862"
+const mintAnimalTokenAdress ="0x3d77302195d825b217d68B502BB64bED1d56628f"
+const saleAnimalTokenAdress ="0x545E1cD5C4B343510abB16d7c01107A1DD712862"
+
+export const web3 = new Web3(window.ethereum);
+
+export const mintAnimalTokenContract = new web3.eth.Contract(
+  mintAnimalTokenAbi,
+  mintAnimalTokenAdress
+);
+
+export const saleAnimalTokenContract = new web3.eth.Contract(
+  saleAnimalTokenAbi,
+  saleAnimalTokenAdress
+);
