@@ -732,5 +732,5 @@ const saleAnimalTokenAbi : AbiItem[] = [
 		"type": "function"
 	}
 ]
-const mintAnimalTokenAddress =""
-const saleAnimalTokenAddress =""
+const mintAnimalTokenAddress ="0x3d77302195d825b217d68B502BB64bED1d56628f"
+const saleAnimalTokenAddress ="0x545E1cD5C4B343510abB16d7c01107A1DD712862"
