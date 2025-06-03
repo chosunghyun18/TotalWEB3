@@ -23,7 +23,14 @@ const App: FC = () => {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getAccount();
+    }, []);
+
+    useEffect(() => {
+    console.log(account)
+    }, [account]);
+
   return (
     <BrowserRouter>
       <Routes>

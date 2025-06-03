@@ -2,7 +2,7 @@ import { AbiItem } from "web3-utils";
 
 import Web3 from "web3";
 
-const mintAnimalTokenAbi : AbiItem[]= [
+const mintAnimalTokenAbi : AbiItem[] = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -11,7 +11,7 @@ const mintAnimalTokenAbi : AbiItem[]= [
 	{
 		"inputs": [],
 		"name": "ERC721EnumerableForbiddenBatchMint",
-		"type": "error"
+		"type": "error" as any
 	},
 	{
 		"inputs": [
@@ -32,7 +32,7 @@ const mintAnimalTokenAbi : AbiItem[]= [
 			}
 		],
 		"name": "ERC721IncorrectOwner",
-		"type": "error"
+		"type": "error" as any
 	},
 	{
 		"inputs": [
@@ -611,6 +611,37 @@ const saleAnimalTokenAbi : AbiItem[] = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_animalTokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "purchaseAnimalToken",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_animalTokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "setForSaleAnimalToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_mintAnimalTokenAddress",
 				"type": "address"
@@ -700,37 +731,6 @@ const saleAnimalTokenAbi : AbiItem[] = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_animalTokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "purchaseAnimalToken",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_animalTokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
-			}
-		],
-		"name": "setForSaleAnimalToken",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
