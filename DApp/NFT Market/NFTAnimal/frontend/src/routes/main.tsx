@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Box, Button } from "@chakra-ui/react";
+import React, { FC,useState} from "react";
+import { Box, Button, Text,Flex} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 interface MainProps {
@@ -8,12 +8,30 @@ interface MainProps {
 
 const Main: FC<MainProps> = ({account}) => {
   const navigate = useNavigate();
-
+  const [newAnimalCard, setNewAnimalCard] = useState<string>();
+  const onClickMint = () => {};
   return (
-    <Box>
-      Main
-      <Button onClick={() => navigate("/test")}>test</Button>
-    </Box>
+    <Flex
+      w="full"
+      h="100vh"
+      justifyContent="center"
+      alignItems="center"
+      direction="column">
+      <Box>
+        {newAnimalCard ? (
+          <div>🦁AnimalCard</div>
+        ) : (
+          <Text>Let's mint Animal Card!!!</Text>
+        )}
+      </Box>
+      <Button mt={4} size="sm" colorScheme="blue" onClick={onClickMint}>
+        Mint
+      </Button>
+
+      <Box>
+        <Button onClick={() => navigate("/test")}>test</Button>
+      </Box>
+    </Flex>
   );
 };
 
